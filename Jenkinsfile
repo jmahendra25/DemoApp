@@ -1,12 +1,12 @@
-node('master'){
-   
-        stage('checkout') {
-           git branch: 'Jenkins_Tutorial', credentialsId: '3289c786-9e14-497a-8ef3-071a93a294ac', url: 'https://github.com/jmahendra25/DemoApp.git'
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                git branch: 'Jenkins_Tutorial', credentialsId: '3289c786-9e14-497a-8ef3-071a93a294ac', url: 'https://github.com/jmahendra25/DemoApp.git'
+            }
         }
-		
-		stage('build') {
-			bat 'mvn compile'
-		}
-		
-   
+    }
 }
+
